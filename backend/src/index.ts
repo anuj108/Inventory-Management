@@ -3,11 +3,11 @@ config();
 
 import http from "http";
 import mongoose from "mongoose";
-import { createApp } from "./server/app";
-import { getEnv } from "./server/config/env";
-import { connectMongo } from "./server/db/mongo";
+import { createApp } from "./server/app.js";
+import { getEnv } from "./server/config/env.js";
+import { connectMongo } from "./server/db/mongo.js";
 import bcrypt from "bcryptjs";
-import { UserModel } from "./server/models/User";
+import { UserModel } from "./server/models/User.js";
 
 async function startServer() {
 	const env = getEnv();

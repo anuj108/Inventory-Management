@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { router as health } from "./health";
-import { router as products } from "./products";
-import { router as auth } from "./auth";
-import { router as sales } from "./sales";
-import { router as customers } from "./customers";
+import { router as health } from "./health.js";
+import { router as products } from "./products.js";
+import { router as auth } from "./auth.js";
+import { router as sales } from "./sales.js";
+import { router as customers } from "./customers.js";
 
 export const api = Router();
 

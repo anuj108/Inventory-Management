@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { requireAuth } from "../middleware/auth";
-import { SaleModel } from "../models/Sale";
-import { PaymentModel } from "../models/Payment";
-import { CustomerModel } from "../models/Customer";
-import { ProductModel } from "../models/Product";
+import { requireAuth } from "../middleware/auth.js";
+import { SaleModel } from "../models/Sale.js";
+import { PaymentModel } from "../models/Payment.js";
+import { CustomerModel } from "../models/Customer.js";
+import { ProductModel } from "../models/Product.js";
 import { z } from "zod";
 
 export const router = Router();
