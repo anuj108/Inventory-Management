@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { getEnv } from "../config/env.ts";
+import { getEnv } from "../config/env";
 
 export interface AuthRequest extends Request {
 	user?: { sub: string; role: string; name: string };
