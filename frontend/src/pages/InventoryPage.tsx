@@ -86,7 +86,7 @@ const deleteMutation = useMutation({
                         <Tab label="Add product (normal) • सामान्य उत्पाद" />
 					</Tabs>
 					{tab === 0 && (
-						<Stack direction={{ xs: "column", md: "row" }} spacing={2} component="form" onSubmit={(e) => {
+                        <Stack direction={{ xs: "column", md: "row" }} spacing={2} component="form" onSubmit={(e) => {
 							e.preventDefault();
 							createMutation.mutate({
 								name: formKg.name,
@@ -113,7 +113,7 @@ const deleteMutation = useMutation({
 						</Stack>
 					)}
 					{tab === 1 && (
-						<Stack direction={{ xs: "column", md: "row" }} spacing={2} component="form" onSubmit={(e) => {
+                        <Stack direction={{ xs: "column", md: "row" }} spacing={2} component="form" onSubmit={(e) => {
 							e.preventDefault();
 							createMutation.mutate({
 								name: formQty.name,

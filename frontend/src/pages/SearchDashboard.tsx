@@ -29,7 +29,7 @@ export function SearchDashboard() {
 	return (
 		<Stack spacing={2}>
 			<Typography variant="h6">Search Dashboard</Typography>
-    <Tabs value={tab} onChange={(_, v) => setTab(v)}>
+    <Tabs value={tab} onChange={(_, v) => setTab(v)} variant="scrollable" scrollButtons allowScrollButtonsMobile>
         <Tab label="Search Customer • ग्राहक खोजें" />
         <Tab label="Search Inventory • इन्वेंटरी खोजें" />
 			</Tabs>

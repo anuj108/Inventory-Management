@@ -55,7 +55,7 @@ export function SalesPage() {
         <Stack spacing={2} sx={{ mt: 3 }}>
             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Create Sale • बिक्री बनाएं</Typography>
             <Card>
-                <CardContent>
+                <CardContent sx={{ p: { xs: 2, md: 3 } }}>
                     {createSale.isError && (
                         <Alert severity="error" sx={{ mb: 2 }}>{String((createSale.error as any)?.message || "Failed to create sale")}</Alert>
                     )}
