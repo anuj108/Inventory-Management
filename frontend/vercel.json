@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://inventory-management-l9vv.onrender.com/api/:path*" },
+    { "source": "/:path*", "destination": "/index.html" }
+  ]
+}
+
+
