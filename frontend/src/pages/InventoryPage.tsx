@@ -81,9 +81,9 @@ const deleteMutation = useMutation({
             <Typography variant="h5" sx={{ fontWeight: 700 }}>Inventory • इन्वेंटरी</Typography>
 			<Card>
 				<CardContent>
-					<Tabs value={tab} onChange={(_, v) => setTab(v)} sx={{ mb: 2 }}>
-                        <Tab label="Add product (kg) • उत्पाद (किलो)" />
-                        <Tab label="Add product (normal) • सामान्य उत्पाद" />
+					<Tabs value={tab} onChange={(_, v) => setTab(v)} sx={{ mb: 2 }} variant="scrollable" scrollButtons allowScrollButtonsMobile>
+                        <Tab label="Add product (kg)" sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: { xs: "120px", md: "auto" } }} />
+                        <Tab label="Add product (normal)" sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: { xs: "120px", md: "auto" } }} />
 					</Tabs>
 					{tab === 0 && (
                         <Stack direction={{ xs: "column", md: "row" }} spacing={2} component="form" onSubmit={(e) => {

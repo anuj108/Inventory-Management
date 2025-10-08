@@ -8,16 +8,16 @@ export function AppLayout() {
 	return (
 		<Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
             <AppBar position="static" elevation={0}>
-                <Toolbar sx={{ flexWrap: { xs: "wrap", md: "nowrap" }, rowGap: 1 }}>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 700 }}>
+                <Toolbar sx={{ minHeight: { xs: 64, md: 64 }, px: { xs: 1, md: 3 } }}>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 700, fontSize: { xs: "1rem", md: "1.25rem" } }}>
                         Sandeep Agri Store • संदीप एग्री स्टोर
                     </Typography>
                     {isAuthed && (
-                      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                        <Button size="small" color="inherit" component={Link} to="/">Inventory • इन्वेंटरी</Button>
-                        <Button size="small" color="inherit" component={Link} to="/sales">Sales • बिक्री</Button>
-                        <Button size="small" color="inherit" component={Link} to="/search">Search • खोज</Button>
-                        <Button size="small" color="inherit" onClick={() => { logout(); navigate("/login"); }}>Logout • लॉगआउट</Button>
+                      <Box sx={{ display: "flex", gap: { xs: 0.5, md: 1 }, flexWrap: "nowrap", overflow: "hidden" }}>
+                        <Button size="small" color="inherit" component={Link} to="/" sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: "auto", px: { xs: 0.5, md: 1 } }}>Inventory</Button>
+                        <Button size="small" color="inherit" component={Link} to="/sales" sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: "auto", px: { xs: 0.5, md: 1 } }}>Sales</Button>
+                        <Button size="small" color="inherit" component={Link} to="/search" sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: "auto", px: { xs: 0.5, md: 1 } }}>Search</Button>
+                        <Button size="small" color="inherit" onClick={() => { logout(); navigate("/login"); }} sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: "auto", px: { xs: 0.5, md: 1 } }}>Logout</Button>
                       </Box>
                     )}
                 </Toolbar>

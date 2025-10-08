@@ -30,8 +30,8 @@ export function SearchDashboard() {
 		<Stack spacing={2}>
 			<Typography variant="h6">Search Dashboard</Typography>
     <Tabs value={tab} onChange={(_, v) => setTab(v)} variant="scrollable" scrollButtons allowScrollButtonsMobile>
-        <Tab label="Search Customer • ग्राहक खोजें" />
-        <Tab label="Search Inventory • इन्वेंटरी खोजें" />
+        <Tab label="Search Customer" sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: { xs: "120px", md: "auto" } }} />
+        <Tab label="Search Inventory" sx={{ fontSize: { xs: "0.7rem", md: "0.875rem" }, minWidth: { xs: "120px", md: "auto" } }} />
 			</Tabs>
 
 			{tab === 0 && (
