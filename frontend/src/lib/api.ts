@@ -1,4 +1,15 @@
-const API_BASE = (import.meta as any).env?.VITE_API_BASE || "";
+// Resolve API base in this order: manual override in localStorage, Vite env, same-origin in production, '' in local dev
+function resolveApiBase(): string {
+    const override = typeof window !== "undefined" ? localStorage.getItem("api_base") : null;
+    if (override) return override.replace(/\/$/, "");
+    const envBase = (import.meta as any).env?.VITE_API_BASE;
+    if (envBase) return String(envBase).replace(/\/$/, "");
+    if (typeof window !== "undefined" && window.location && !/localhost|127\.0\.0\.1/.test(window.location.hostname)) {
+        return window.location.origin.replace(/\/$/, "");
+    }
+    return ""; // dev proxy
+}
+const API_BASE = resolveApiBase();
 
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
 	const token = localStorage.getItem("auth_token");
