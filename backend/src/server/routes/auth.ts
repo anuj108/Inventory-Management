@@ -2,8 +2,8 @@ import { Router } from "express";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { UserModel } from "../models/User.ts";
-import { getEnv } from "../config/env.ts";
+import { UserModel } from "../models/User";
+import { getEnv } from "../config/env";
 
 export const router = Router();
 

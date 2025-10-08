@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { requireAuth } from "../middleware/auth.ts";
-import { CustomerModel } from "../models/Customer.ts";
-import { SaleModel } from "../models/Sale.ts";
-import { PaymentModel } from "../models/Payment.ts";
+import { requireAuth } from "../middleware/auth";
+import { CustomerModel } from "../models/Customer";
+import { SaleModel } from "../models/Sale";
+import { PaymentModel } from "../models/Payment";
 
 export const router = Router();
 

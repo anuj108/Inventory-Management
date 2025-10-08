@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { z } from "zod";
-import { ProductModel } from "../models/Product.ts";
-import { requireAuth } from "../middleware/auth.ts";
+import { ProductModel } from "../models/Product";
+import { requireAuth } from "../middleware/auth";
 
 export const router = Router();
 

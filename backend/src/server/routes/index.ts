@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { router as health } from "./health.ts";
-import { router as products } from "./products.ts";
-import { router as auth } from "./auth.ts";
-import { router as sales } from "./sales.ts";
-import { router as customers } from "./customers.ts";
+import { router as health } from "./health";
+import { router as products } from "./products";
+import { router as auth } from "./auth";
+import { router as sales } from "./sales";
+import { router as customers } from "./customers";
 
 export const api = Router();
 

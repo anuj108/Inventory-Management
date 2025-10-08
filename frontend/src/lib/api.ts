@@ -1,9 +1,12 @@
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || "";
+
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
 	const token = localStorage.getItem("auth_token");
 	const headers = new Headers(init?.headers || {});
 	headers.set("Content-Type", "application/json");
 	if (token) headers.set("Authorization", `Bearer ${token}`);
-	const res = await fetch(`/api${path}`, { ...init, headers });
+	const url = `${API_BASE}/api${path}`;
+	const res = await fetch(url, { ...init, headers });
 	if (!res.ok) {
 		const text = await res.text();
 		throw new Error(text || res.statusText);

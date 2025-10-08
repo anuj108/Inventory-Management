@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { api } from "./routes/index.ts";
+import { api } from "./routes/index";
 
 export function createApp() {
 	const app = express();
