@@ -27,19 +27,19 @@ export function LoginPage() {
 	return (
 		<Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
 			<Paper sx={{ p: 4, width: 360 }} elevation={3}>
-				<Typography variant="h6" sx={{ mb: 2 }}>
-					Sign in
-				</Typography>
+                <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }}>
+                    Sign in • साइन इन
+                </Typography>
 				{error && (
 					<Alert severity="error" sx={{ mb: 2 }}>
 						{error}
 					</Alert>
 				)}
 				<Stack component="form" onSubmit={onSubmit} spacing={2}>
-					<TextField label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-					<TextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-					<Button type="submit" variant="contained" disabled={loading}>
-						{loading ? "Signing in..." : "Sign in"}
+                    <TextField label="Email • ईमेल" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <TextField label="Password • पासवर्ड" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <Button type="submit" variant="contained" disabled={loading}>
+                        {loading ? "Signing in..." : "Sign in • साइन इन"}
 					</Button>
 				</Stack>
 			</Paper>

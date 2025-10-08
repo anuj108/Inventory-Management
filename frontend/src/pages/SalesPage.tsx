@@ -53,7 +53,7 @@ export function SalesPage() {
         <Stack spacing={2}></Stack>
 
         <Stack spacing={2} sx={{ mt: 3 }}>
-            <Typography variant="subtitle1">Create Sale</Typography>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Create Sale • बिक्री बनाएं</Typography>
             <Card>
                 <CardContent>
                     {createSale.isError && (
@@ -66,25 +66,25 @@ export function SalesPage() {
                         if (Object.keys(errors).length > 0) return;
                         createSale.mutate(saleForm);
                     }}>
-                        <TextField label="Customer name" value={saleForm.customerName} onChange={(e) => { setSaleForm({ ...saleForm, customerName: e.target.value }); if (formErrors.customerName) setFormErrors({ ...formErrors, customerName: "" }); }} required fullWidth error={Boolean(formErrors.customerName)} helperText={formErrors.customerName} />
-                        <TextField label="Mobile" value={saleForm.customerPhone} onChange={(e) => setSaleForm({ ...saleForm, customerPhone: e.target.value })} fullWidth />
+                        <TextField label="Customer name • ग्राहक का नाम" value={saleForm.customerName} onChange={(e) => { setSaleForm({ ...saleForm, customerName: e.target.value }); if (formErrors.customerName) setFormErrors({ ...formErrors, customerName: "" }); }} required fullWidth error={Boolean(formErrors.customerName)} helperText={formErrors.customerName} />
+                        <TextField label="Mobile • मोबाइल" value={saleForm.customerPhone} onChange={(e) => setSaleForm({ ...saleForm, customerPhone: e.target.value })} fullWidth />
                         <Autocomplete
                             options={(products.data?.items || []).map((p: any) => ({ label: `${p.name} (${p.unit})`, id: p._id, unit: p.unit, price: p.sellingPrice }))}
                             value={(products.data?.items || []).map((p: any) => ({ label: `${p.name} (${p.unit})`, id: p._id, unit: p.unit, price: p.sellingPrice })).find((o: any) => o.id === saleForm.productId) || null}
                             onChange={(_, val: any) => { setSaleForm({ ...saleForm, productId: val?.id || "", sellingPrice: val?.price || saleForm.sellingPrice }); if (formErrors.productId) setFormErrors({ ...formErrors, productId: "" }); }}
-                            renderInput={(params) => <TextField {...params} label="Product" required fullWidth error={Boolean(formErrors.productId)} helperText={formErrors.productId} />}
+                            renderInput={(params) => <TextField {...params} label="Product • उत्पाद" required fullWidth error={Boolean(formErrors.productId)} helperText={formErrors.productId} />}
                         />
                         <TextField
-                            label={`${(products.data?.items || []).find((p: any) => p._id === saleForm.productId)?.unit === "kg" ? "Quantity (kg)" : "Quantity"}`}
+                            label={`${(products.data?.items || []).find((p: any) => p._id === saleForm.productId)?.unit === "kg" ? "Quantity (kg) • मात्रा (किलो)" : "Quantity • मात्रा"}`}
                             type="number"
                             value={saleForm.quantity}
                             onChange={(e) => { setSaleForm({ ...saleForm, quantity: Number(e.target.value) }); if (formErrors.quantity) setFormErrors({ ...formErrors, quantity: "" }); }}
                             required fullWidth error={Boolean(formErrors.quantity)} helperText={formErrors.quantity} />
-                        <TextField label="Selling price" type="number" value={saleForm.sellingPrice} onChange={(e) => { setSaleForm({ ...saleForm, sellingPrice: Number(e.target.value) }); if (formErrors.sellingPrice) setFormErrors({ ...formErrors, sellingPrice: "" }); }} required fullWidth error={Boolean(formErrors.sellingPrice)} helperText={formErrors.sellingPrice} />
-                        <TextField label="Paid" type="number" value={saleForm.paid} onChange={(e) => { setSaleForm({ ...saleForm, paid: Number(e.target.value) }); if (formErrors.paid) setFormErrors({ ...formErrors, paid: "" }); }} fullWidth error={Boolean(formErrors.paid)} helperText={formErrors.paid} />
-                        <TextField label="Left" type="number" value={Math.max(0, (saleForm.quantity * saleForm.sellingPrice) - saleForm.paid)} disabled fullWidth />
+                        <TextField label="Selling price • बिक्री कीमत" type="number" value={saleForm.sellingPrice} onChange={(e) => { setSaleForm({ ...saleForm, sellingPrice: Number(e.target.value) }); if (formErrors.sellingPrice) setFormErrors({ ...formErrors, sellingPrice: "" }); }} required fullWidth error={Boolean(formErrors.sellingPrice)} helperText={formErrors.sellingPrice} />
+                        <TextField label="Paid • भुगतान" type="number" value={saleForm.paid} onChange={(e) => { setSaleForm({ ...saleForm, paid: Number(e.target.value) }); if (formErrors.paid) setFormErrors({ ...formErrors, paid: "" }); }} fullWidth error={Boolean(formErrors.paid)} helperText={formErrors.paid} />
+                        <TextField label="Left • शेष" type="number" value={Math.max(0, (saleForm.quantity * saleForm.sellingPrice) - saleForm.paid)} disabled fullWidth />
                         <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                            <Button type="submit" variant="contained" disabled={createSale.isPending}>Save</Button>
+                            <Button type="submit" variant="contained" disabled={createSale.isPending}>Save • सहेजें</Button>
                         </Box>
                     </Stack>
                 </CardContent>
@@ -92,7 +92,7 @@ export function SalesPage() {
         </Stack>
 
         <Stack spacing={2} sx={{ mt: 4 }}>
-            <Typography variant="subtitle1">Recent Sales</Typography>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Recent Sales • हाल की बिक्री</Typography>
             <Grid container spacing={2}>
                 {(recentSales.data?.items || []).map((s: any) => {
                     const item = s.items?.[0];

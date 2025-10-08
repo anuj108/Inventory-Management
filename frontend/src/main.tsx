@@ -15,7 +15,21 @@ function RequireAuth({ children }: { children: JSX.Element }) {
 }
 
 const theme = createTheme({
-	palette: { mode: "light", primary: { main: "#2e7d32" } }
+    palette: {
+        mode: "light",
+        primary: { main: "#2e7d32" },
+        secondary: { main: "#00796b" },
+        background: { default: "#f7faf9" }
+    },
+    shape: { borderRadius: 10 },
+    typography: {
+        fontFamily: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial", "sans-serif"].join(",")
+    },
+    components: {
+        MuiButton: { styleOverrides: { root: { textTransform: "none", borderRadius: 10 } } },
+        MuiCard: { styleOverrides: { root: { borderRadius: 14 } } },
+        MuiAppBar: { styleOverrides: { root: { background: "linear-gradient(90deg,#2e7d32,#00796b)" } } }
+    }
 });
 
 const router = createBrowserRouter([

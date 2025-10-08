@@ -78,12 +78,12 @@ const deleteMutation = useMutation({
 
 	return (
 		<Stack spacing={3}>
-			<Typography variant="h5">Inventory</Typography>
+            <Typography variant="h5" sx={{ fontWeight: 700 }}>Inventory • इन्वेंटरी</Typography>
 			<Card>
 				<CardContent>
 					<Tabs value={tab} onChange={(_, v) => setTab(v)} sx={{ mb: 2 }}>
-						<Tab label="Add product (kg)" />
-						<Tab label="Add product (normal)" />
+                        <Tab label="Add product (kg) • उत्पाद (किलो)" />
+                        <Tab label="Add product (normal) • सामान्य उत्पाद" />
 					</Tabs>
 					{tab === 0 && (
 						<Stack direction={{ xs: "column", md: "row" }} spacing={2} component="form" onSubmit={(e) => {
@@ -97,7 +97,7 @@ const deleteMutation = useMutation({
 								stockQuantity: formKg.quantityKg
 							});
 						}}>
-							<TextField size="small" label="Product name" value={formKg.name} onChange={(e) => setFormKg({ ...formKg, name: e.target.value })} required />
+                            <TextField size="small" label="Product name • उत्पाद का नाम" value={formKg.name} onChange={(e) => setFormKg({ ...formKg, name: e.target.value })} required />
 							<Autocomplete
 								freeSolo
 								options={[...new Set((data?.items || []).map((p) => p.category))]}
@@ -105,10 +105,10 @@ const deleteMutation = useMutation({
 								onInputChange={(_, v) => setFormKg({ ...formKg, category: v })}
 								blurOnSelect
 								sx={{ minWidth: 240, flex: 1 }}
-								renderInput={(params) => <TextField {...params} size="small" fullWidth label="Category" required />}
+                                renderInput={(params) => <TextField {...params} size="small" fullWidth label="Category • श्रेणी" required />}
 							/>
-							<TextField size="small" type="number" label="Unit (kg)" value={formKg.quantityKg} onChange={(e) => setFormKg({ ...formKg, quantityKg: Number(e.target.value) })} required />
-							<TextField size="small" type="number" label="Price per kg" value={formKg.pricePerKg} onChange={(e) => setFormKg({ ...formKg, pricePerKg: Number(e.target.value) })} required />
+                            <TextField size="small" type="number" label="Unit (kg) • मात्रा (किलो)" value={formKg.quantityKg} onChange={(e) => setFormKg({ ...formKg, quantityKg: Number(e.target.value) })} required />
+                            <TextField size="small" type="number" label="Price per kg • प्रति किलो कीमत" value={formKg.pricePerKg} onChange={(e) => setFormKg({ ...formKg, pricePerKg: Number(e.target.value) })} required />
 							<Button type="submit" variant="contained">Add</Button>
 						</Stack>
 					)}
@@ -124,7 +124,7 @@ const deleteMutation = useMutation({
 								stockQuantity: formQty.quantity
 							});
 						}}>
-							<TextField size="small" label="Product name" value={formQty.name} onChange={(e) => setFormQty({ ...formQty, name: e.target.value })} required />
+                            <TextField size="small" label="Product name • उत्पाद का नाम" value={formQty.name} onChange={(e) => setFormQty({ ...formQty, name: e.target.value })} required />
 							<Autocomplete
 								freeSolo
 								options={[...new Set((data?.items || []).map((p) => p.category))]}
@@ -132,10 +132,10 @@ const deleteMutation = useMutation({
 								onInputChange={(_, v) => setFormQty({ ...formQty, category: v })}
 								blurOnSelect
 								sx={{ minWidth: 240, flex: 1 }}
-								renderInput={(params) => <TextField {...params} size="small" fullWidth label="Category" required />}
+                                renderInput={(params) => <TextField {...params} size="small" fullWidth label="Category • श्रेणी" required />}
 							/>
-							<TextField size="small" type="number" label="Quantity" value={formQty.quantity} onChange={(e) => setFormQty({ ...formQty, quantity: Number(e.target.value) })} required />
-							<TextField size="small" type="number" label="Price per quantity" value={formQty.pricePerQty} onChange={(e) => setFormQty({ ...formQty, pricePerQty: Number(e.target.value) })} required />
+                            <TextField size="small" type="number" label="Quantity • मात्रा" value={formQty.quantity} onChange={(e) => setFormQty({ ...formQty, quantity: Number(e.target.value) })} required />
+                            <TextField size="small" type="number" label="Price per quantity • प्रति मात्रा कीमत" value={formQty.pricePerQty} onChange={(e) => setFormQty({ ...formQty, pricePerQty: Number(e.target.value) })} required />
 							<Button type="submit" variant="contained">Add</Button>
 						</Stack>
 					)}
@@ -153,7 +153,7 @@ const deleteMutation = useMutation({
 								<Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
 									<Typography variant="h6" noWrap>{p.name}</Typography>
 									<Stack direction="row" spacing={1}>
-										<Chip size="small" label={p.category} />
+                                <Chip size="small" label={p.category} />
 										{p.unit && p.unit !== "qty" && <Chip size="small" label={p.unit} />}
 									</Stack>
 								</Stack>

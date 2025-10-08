@@ -29,14 +29,14 @@ export function SearchDashboard() {
 	return (
 		<Stack spacing={2}>
 			<Typography variant="h6">Search Dashboard</Typography>
-			<Tabs value={tab} onChange={(_, v) => setTab(v)}>
-				<Tab label="Search Customer" />
-				<Tab label="Search Inventory" />
+    <Tabs value={tab} onChange={(_, v) => setTab(v)}>
+        <Tab label="Search Customer • ग्राहक खोजें" />
+        <Tab label="Search Inventory • इन्वेंटरी खोजें" />
 			</Tabs>
 
 			{tab === 0 && (
-				<Box>
-					<TextField label="Search by name or phone" value={qCustomer} onChange={(e) => setQCustomer(e.target.value)} fullWidth sx={{ mb: 2 }} />
+                <Box>
+                    <TextField label="Search by name or phone • नाम या फोन से खोजें" value={qCustomer} onChange={(e) => setQCustomer(e.target.value)} fullWidth sx={{ mb: 2 }} />
 					{customers.error && <Alert severity="error">{String(customers.error)}</Alert>}
 					<Grid container spacing={2}>
 						{customers.data?.items.map((c) => (
@@ -65,8 +65,8 @@ export function SearchDashboard() {
 			)}
 
 			{tab === 1 && (
-				<Box>
-					<TextField label="Search by name or category" value={qProduct} onChange={(e) => setQProduct(e.target.value)} fullWidth sx={{ mb: 2 }} />
+                <Box>
+                    <TextField label="Search by name or category • नाम या श्रेणी से खोजें" value={qProduct} onChange={(e) => setQProduct(e.target.value)} fullWidth sx={{ mb: 2 }} />
 					{products.error && <Alert severity="error">{String(products.error)}</Alert>}
 					<Grid container spacing={2}>
 						{products.data?.items.map((p: any) => (
